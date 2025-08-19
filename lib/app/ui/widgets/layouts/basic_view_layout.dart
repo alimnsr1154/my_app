@@ -75,53 +75,49 @@ class BasicViewLayout extends StatelessWidget {
     final deviceWidth = MediaQuery.of(context).size.width;
     final deviceHeight = MediaQuery.of(context).size.height;
 
-    return Align(
-      alignment: Alignment.topLeft, // forces everything to the left
-      child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.symmetric(
-          horizontal: deviceWidth * 0.05,
-          vertical: deviceHeight * 0.02,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, // left alignment
-          mainAxisSize: MainAxisSize.min, // shrink to content height
-          children: [
-            // Back Button
-            if (showBackButton)
-              GestureDetector(
-                onTap: onBackButtonTap ?? () => Navigator.of(context).pop(),
-                child: SvgPicture.asset(
-                  Assets.icons.arrow,
-                  colorFilter: ColorFilter.mode(
-                    AppColors.primaryColors.baseColors.black,
-                    BlendMode.srcIn,
-                  ),
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(
+        horizontal: deviceWidth * 0.05,
+        vertical: deviceHeight * 0.02,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Back Button (always on top left)
+          if (showBackButton)
+            GestureDetector(
+              onTap: onBackButtonTap ?? () => Navigator.of(context).pop(),
+              child: SvgPicture.asset(
+                Assets.icons.arrow,
+                colorFilter: ColorFilter.mode(
+                  AppColors.primaryColors.baseColors.black,
+                  BlendMode.srcIn,
                 ),
-              ),
-
-            Gap(deviceHeight * 0.02),
-
-            // Title below back button
-            Text(
-              headerTitle,
-              style: AppTypography.display(context).sm.copyWith(
-                color: AppColors.primaryColors.grey[1200],
-                fontWeight: FontWeight.w600,
               ),
             ),
 
-            // Optional suffix icon below title
-            if (suffixIcon != null)
-              GestureDetector(
-                onTap: onSuffixIconTap,
-                child: Container(
-                  margin: EdgeInsets.only(top: deviceHeight * 0.01),
-                  child: suffixIcon,
+          Gap(deviceHeight * 0.02),
+
+          // Title + optional suffix icon in the same row
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                headerTitle,
+                style: AppTypography.display(context).sm.copyWith(
+                  color: AppColors.primaryColors.grey[1200],
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-          ],
-        ),
+
+              if (suffixIcon != null)
+                GestureDetector(onTap: onSuffixIconTap, child: suffixIcon!),
+            ],
+          ),
+        ],
       ),
     );
   }

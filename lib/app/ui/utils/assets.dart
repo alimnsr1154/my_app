@@ -12,7 +12,7 @@ class IconsAsset {
   String taskSquare = 'assets/icons/task-square.svg';
   String user = 'assets/icons/user.svg';
   String arrow = 'assets/icons/arrow.svg';
-  String btnUploading = 'assets/icons/btn-uploading.svg';
+  String btnUploading = 'assets/icons/btn_uploading.svg';
   String arrowRight = 'assets/icons/arrow_right.svg';
   String logout = 'assets/icons/logout.svg';
   String attachment = 'assets/icons/attachment.svg';

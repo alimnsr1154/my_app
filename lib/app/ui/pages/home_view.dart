@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
     final deviceHeight = MediaQuery.of(context).size.height;
 
     return BasicViewLayout(
-      headerTitle: '홍길동님',
+      headerTitle: '안녕하세요, \n 홍길동님',
       suffixIcon: SvgPicture.asset(Assets.icons.btnUploading),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
           Gap(deviceHeight * 0.02),
           MenuTile(
             icon: Assets.icons.user,
-            title: '내 정보',
+            title: ' 내 정보',
             onTap: () {
               context.pushRoute(const ProfileRoute());
             },
