@@ -12,15 +12,19 @@ class IconsAsset {
   String taskSquare = 'assets/icons/task-square.svg';
   String user = 'assets/icons/user.svg';
   String arrow = 'assets/icons/arrow.svg';
+  String btnUploading = 'assets/icons/btn-uploading.svg';
+  String arrowRight = 'assets/icons/arrow_right.svg';
+  String logout = 'assets/icons/logout.svg';
+  String attachment = 'assets/icons/attachment.svg';
 }
 
 class ImagesAsset {
   String splash = 'assets/images/splash.png';
-  String pic1 = 'assets/images/pic1.jpg';
-  String pic2 = 'assets/images/pic2.jpg';
-  String pic3 = 'assets/images/pic3.jpg';
-  String pic4 = 'assets/images/pic4.jpg';
-  String pic5 = 'assets/images/pic5.jpg';
+  String pic1 = 'assets/images/picture-1.jpg';
+  String pic2 = 'assets/images/picture-2.jpg';
+  String pic3 = 'assets/images/picture-3.jpg';
+  String pic4 = 'assets/images/picture-4.jpg';
+  String pic5 = 'assets/images/picture-5.jpg';
 }
 
 class FontsAsset {

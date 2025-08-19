@@ -14,8 +14,6 @@ class BasicViewLayout extends StatelessWidget {
   final Widget? suffixIcon;
   final VoidCallback? onBackButtonTap;
   final VoidCallback? onSuffixIconTap;
-  final Widget? bottomButton;
-  final VoidCallback? onBottomButtonTap;
   final EdgeInsets? padding;
   final bool enableSafeArea;
   final CrossAxisAlignment crossAxisAlignment;
@@ -31,8 +29,7 @@ class BasicViewLayout extends StatelessWidget {
     this.suffixIcon,
     this.onBackButtonTap,
     this.onSuffixIconTap,
-    this.bottomButton,
-    this.onBottomButtonTap,
+
     this.padding,
     this.enableSafeArea = true,
     this.crossAxisAlignment = CrossAxisAlignment.center,
@@ -68,9 +65,6 @@ class BasicViewLayout extends StatelessWidget {
                     ),
               ),
             ),
-
-            // Bottom Button Section
-            if (bottomButton != null) _buildBottomButton(context),
           ],
         ),
       ),
@@ -128,30 +122,6 @@ class BasicViewLayout extends StatelessWidget {
               ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildBottomButton(BuildContext context) {
-    final deviceWidth = MediaQuery.of(context).size.width;
-    final deviceHeight = MediaQuery.of(context).size.height;
-    return Container(
-      color: Colors.transparent,
-      width: double.infinity,
-      height: deviceHeight * 0.1,
-      padding: EdgeInsets.symmetric(
-        horizontal: deviceWidth * 0.05,
-        vertical: deviceHeight * 0.02,
-      ),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primaryColors.primary[600], // primary 600
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(deviceWidth * 0.03),
-          ),
-        ),
-        onPressed: onBottomButtonTap,
-        child: bottomButton,
       ),
     );
   }

@@ -16,7 +16,7 @@ dependencies:
   get: ^4.7.2
   gap: ^3.0.1
   flutter_svg: ^2.2.0
- 
+  flutter_hooks: ^0.21.2
 
 dev_dependencies:
   flutter_test:
