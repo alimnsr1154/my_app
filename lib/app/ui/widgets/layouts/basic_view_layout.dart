@@ -7,6 +7,7 @@ import 'package:my_app/app/ui/utils/assets.dart';
 
 class BasicViewLayout extends StatelessWidget {
   final String headerTitle;
+  final String? headerSubtitle;
   final Color? backgroundColor;
   final Widget? child;
   final List<Widget>? children;
@@ -22,6 +23,7 @@ class BasicViewLayout extends StatelessWidget {
   const BasicViewLayout({
     super.key,
     required this.headerTitle,
+    this.headerSubtitle,
     this.backgroundColor,
     this.child,
     this.children,
@@ -100,17 +102,29 @@ class BasicViewLayout extends StatelessWidget {
 
           Gap(deviceHeight * 0.02),
 
-          // Title + optional suffix icon in the same row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                headerTitle,
-                style: AppTypography.display(context).sm.copyWith(
-                  color: AppColors.primaryColors.grey[1200],
-                  fontWeight: FontWeight.w600,
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (headerSubtitle != null)
+                    Text(
+                      headerSubtitle!,
+                      style: AppTypography.display(context).xxs.copyWith(
+                        color: AppColors.primaryColors.grey[1200],
+                        fontWeight: FontWeight.w400, 
+                      ),
+                    ),
+                  Text(
+                    headerTitle,
+                    style: AppTypography.display(context).sm.copyWith(
+                      color: AppColors.primaryColors.grey[1200],
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
               ),
 
               if (suffixIcon != null)

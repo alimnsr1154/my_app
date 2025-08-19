@@ -17,7 +17,8 @@ class HomeView extends StatelessWidget {
     final deviceHeight = MediaQuery.of(context).size.height;
 
     return BasicViewLayout(
-      headerTitle: '안녕하세요, \n 홍길동님',
+      headerSubtitle: '안녕하세요,', 
+      headerTitle: '홍길동님', 
       suffixIcon: SvgPicture.asset(Assets.icons.btnUploading),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
